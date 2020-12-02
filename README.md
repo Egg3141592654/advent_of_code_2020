@@ -1,2 +1,5 @@
-# advent_of_code_2020
-My first foray into Rust using the problems from Advent of Code
+This is my Code Advent repository where I will be solving the 2020 advent of code solutions in C++
+
+
+
+

@@ -1,0 +1,13 @@
+version: "3.8"
+x-app: &default-app
+  build:
+    context: .
+    dockerfile: ./dev/Dockerfile
+  volumes:
+    - ./seed_data:/examples
+
+services:
+  day1:
+    <<: *default-app
+    command: /app/bin/main 1 
+    
