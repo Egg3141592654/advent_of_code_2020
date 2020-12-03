@@ -5,6 +5,7 @@
 
 #include "day1.hpp"
 #include "day2.hpp"
+#include "day3.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -30,6 +31,14 @@ int main(int argc, char** argv) {
                     std::cout << "Executing Day 2" << std::endl;
                     std::cout << "The number of old valid passwords from input set is " << day2::count_valid_passwords_part_1() << std::endl;
                     std::cout << "The number of new valid passwords from input set is " << day2::count_valid_passwords_part_2()  << std::endl;
+                }
+                break;
+            case 3:
+                {
+                    std::cout << "Executing Day 3" << std::endl;
+                    std::cout << "The number of trees hit is " << day3::number_trees_hit() << std::endl;
+                    std::cout << "Executing part 2" << std::endl;
+                    day3::number_trees_hit_multiple_paths();
                 }
                 break;
             default:
