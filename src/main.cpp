@@ -4,6 +4,7 @@
 #include <sstream>
 
 #include "day1.hpp"
+#include "day2.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -22,6 +23,13 @@ int main(int argc, char** argv) {
                     std::cout << "Executing Day 1" << std::endl;
                     int answer = day1::execute();
                     std:: cout << "The answer to your question is: " << answer << "!" << std::endl;
+                }
+                break;
+            case 2:
+                {
+                    std::cout << "Executing Day 2" << std::endl;
+                    int valid_passwords = day2::count_valid_passwords();
+                    std::cout << "The number of valid passwords from input set is " << valid_passwords << std::endl;
                 }
                 break;
             default:
