@@ -13,8 +13,29 @@ namespace day2 {
         this->upper_bound = upper_bound;
     }
 
-    bool Rule::apply_rule(std::string target) {
-        return false;
+    bool Rule::apply_rule_old(std::string target) {
+        // Take the nested rule and apply to the password
+        int char_instances = 0;
+        for (int i = 0; i < target.length(); ++i) {
+            if (target[i] == this->target_char) {
+                char_instances++;
+            }
+        }
+
+        return (char_instances >= this->lower_bound) && (char_instances <= this->upper_bound);
+    }
+
+    bool Rule::apply_rule_new(std::string target) {
+        // lower bound must have target and upper bound must not have target char
+        // this is 1 indexed, so always subtract 1!
+        if (upper_bound > target.length()) {
+            return false;
+        }
+
+        bool position1_valid = target[this->lower_bound] == this->target_char;
+        bool position2_valid = target[this->upper_bound] == this->target_char;
+
+        return !(position1_valid) != !(position2_valid);
     }
 
     PasswordEntry::PasswordEntry(std::unique_ptr<Rule> rule, std::string password) {
@@ -41,19 +62,15 @@ namespace day2 {
         return to_return;
     }
 
-    bool PasswordEntry::is_valid() {
-        // Take the nested rule and apply to the password
-        int char_instances = 0;
-        for (int i = 0; i < this->password.length(); ++i) {
-            if (this->password[i] == this->rule->target_char) {
-                char_instances++;
-            }
-        }
-
-        return (char_instances >= this->rule->lower_bound) && (char_instances <= this->rule->upper_bound);
+    bool PasswordEntry::is_valid_old() {
+        return this->rule->apply_rule_old(this->password);
     }
 
-    int count_valid_passwords() {
+    bool PasswordEntry::is_valid_new() {
+        return this->rule->apply_rule_new(this->password);
+    }
+
+    int count_valid_passwords_part_1() {
         // Get source file and read it entirely
         std::fstream infile("/examples/day2.txt");
 
@@ -63,7 +80,29 @@ namespace day2 {
         while (std::getline(infile, line))
         {
             std::unique_ptr<PasswordEntry> dummy = PasswordEntry::construct_from_line(line);
-            if (dummy->is_valid()) {
+            if (dummy->is_valid_old()) {
+                valid_passwords++;
+            }
+
+            passwords_detected++;
+        }
+
+        std::cout << "Sifted through " << passwords_detected << " passwords!" << std::endl;
+
+        return valid_passwords;
+    }
+
+    int count_valid_passwords_part_2() {
+        // Get source file and read it entirely
+        std::fstream infile("/examples/day2.txt");
+
+        std::string line;
+        int valid_passwords = 0;
+        int passwords_detected = 0;
+        while (std::getline(infile, line))
+        {
+            std::unique_ptr<PasswordEntry> dummy = PasswordEntry::construct_from_line(line);
+            if (dummy->is_valid_new()) {
                 valid_passwords++;
             }
 

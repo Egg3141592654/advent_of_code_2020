@@ -28,8 +28,8 @@ int main(int argc, char** argv) {
             case 2:
                 {
                     std::cout << "Executing Day 2" << std::endl;
-                    int valid_passwords = day2::count_valid_passwords();
-                    std::cout << "The number of valid passwords from input set is " << valid_passwords << std::endl;
+                    std::cout << "The number of old valid passwords from input set is " << day2::count_valid_passwords_part_1() << std::endl;
+                    std::cout << "The number of new valid passwords from input set is " << day2::count_valid_passwords_part_2()  << std::endl;
                 }
                 break;
             default:
