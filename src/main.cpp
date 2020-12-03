@@ -22,8 +22,10 @@ int main(int argc, char** argv) {
             case 1:
                 {
                     std::cout << "Executing Day 1" << std::endl;
-                    int answer = day1::execute();
-                    std:: cout << "The answer to your question is: " << answer << "!" << std::endl;
+                    int answer = day1::execute_part_1();
+                    std:: cout << "The answer to part 1 is: " << answer << "!" << std::endl;
+                    answer = day1::execute_part_2();
+                    std:: cout << "The answer to part 2 is: " << answer << "!" << std::endl;
                 }
                 break;
             case 2:
