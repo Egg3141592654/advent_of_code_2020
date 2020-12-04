@@ -6,6 +6,7 @@
 #include "day1.hpp"
 #include "day2.hpp"
 #include "day3.hpp"
+#include "day4.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -41,6 +42,15 @@ int main(int argc, char** argv) {
                     std::cout << "The number of trees hit is " << day3::number_trees_hit() << std::endl;
                     std::cout << "Executing part 2" << std::endl;
                     day3::number_trees_hit_multiple_paths();
+                }
+                break;
+            case 4:
+                {
+                    std::cout << "Executing Day 4" << std::endl;
+                    int answer = day4::get_valid_passports();
+                    std::cout << "Part 1 has detected " << answer << " valid passports." << std::endl;
+                    answer = day4::get_valid_detailed_passports();
+                    std::cout << "Part 2 has detected " << answer << " valid passports." << std::endl;
                 }
                 break;
             default:
