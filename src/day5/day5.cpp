@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -56,12 +57,32 @@ namespace day5 {
         for (int i = 0; i < boarding_passes.size(); i++) {
             SeatAssignment seat = parse_boarding_pass(boarding_passes[i]);
 
-            std::cout << "DEBUG assignment row: " << seat.row << ", seat: " << seat.seat << std::endl;
-
             int detected_seat_id = seat.row * 8 + seat.seat;
             if (detected_seat_id > highest_value_seat_id)
                 highest_value_seat_id = detected_seat_id;
         }
         return highest_value_seat_id;
+    }
+
+    int get_your_seat_assignment() {
+        std::vector<std::string> boarding_passes;
+        boarding_passes = parse_file_into_lines();
+
+        std::vector<int> seat_ids;
+        for (int i = 0; i < boarding_passes.size(); i++) {
+            SeatAssignment seat = parse_boarding_pass(boarding_passes[i]);
+            seat_ids.push_back(seat.row * 8 + seat.seat);
+        }
+
+        // sort the list so we can find holes
+        std::sort(seat_ids.begin(), seat_ids.end());
+
+        for (int i = 0; i < seat_ids.size() - 1; ++i) {
+            if (seat_ids[i] + 1 != seat_ids[i + 1]) { 
+                return seat_ids[i] + 1;
+            }
+        }
+
+        return -1;
     }
 }

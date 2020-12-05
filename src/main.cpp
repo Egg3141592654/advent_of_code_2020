@@ -59,6 +59,8 @@ int main(int argc, char** argv) {
                 std::cout << "Executing day 5" << std::endl;
                 int answer = day5::get_highest_detected_seat_number();
                 std::cout << "Highest detected seat per formula in part 1 is: " << answer << std::endl;
+                answer = day5::get_your_seat_assignment();
+                std::cout << "Your seat assignment is: " << answer << std::endl;
             }
             break;
             default:

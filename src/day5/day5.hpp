@@ -7,4 +7,5 @@ namespace day5 {
     };
 
     int get_highest_detected_seat_number();
+    int get_your_seat_assignment();
 }
