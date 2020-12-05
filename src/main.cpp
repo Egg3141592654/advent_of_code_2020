@@ -7,6 +7,7 @@
 #include "day2.hpp"
 #include "day3.hpp"
 #include "day4.hpp"
+#include "day5.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -53,6 +54,13 @@ int main(int argc, char** argv) {
                     std::cout << "Part 2 has detected " << answer << " valid passports." << std::endl;
                 }
                 break;
+            case 5:
+            {
+                std::cout << "Executing day 5" << std::endl;
+                int answer = day5::get_highest_detected_seat_number();
+                std::cout << "Highest detected seat per formula in part 1 is: " << answer << std::endl;
+            }
+            break;
             default:
                 std::cout << "Aborting since you selected a day that doesn't exist!" << std::endl;                
         }
