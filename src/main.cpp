@@ -8,6 +8,7 @@
 #include "day3.hpp"
 #include "day4.hpp"
 #include "day5.hpp"
+#include "day6.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -61,6 +62,15 @@ int main(int argc, char** argv) {
                 std::cout << "Highest detected seat per formula in part 1 is: " << answer << std::endl;
                 answer = day5::get_your_seat_assignment();
                 std::cout << "Your seat assignment is: " << answer << std::endl;
+            }
+            break;
+            case 6:
+            {
+                std::cout << "Executing day 6" << std::endl;
+                int answer = day6::sum_yes_custom_form_answers_by_group();
+                std::cout << "The number of each group's customs answers is " << answer << std::endl;
+                answer = day6::sum_unanimous_form_answers_by_group();
+                std::cout << "The number of each group's unanimous customs answers is " << answer << std::endl;
             }
             break;
             default:
