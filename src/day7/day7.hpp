@@ -2,6 +2,7 @@
 
 #include <map>
 #include <memory>
+#include <set>
 #include <vector>
 
 namespace day7 {
@@ -17,13 +18,14 @@ namespace day7 {
     class Bag {
         private:
             std::string bag_color;
-            std::vector<std::shared_ptr<Bag>> bags_contained;
-            std::vector<std::unique_ptr<Bag>> contained_in;
+            std::vector<BagRelationship> bags_contained;
+            std::vector<std::shared_ptr<Bag>> contained_in;
         public:
             Bag(std::string bag_color);
-            void add_contained_in_relationship(BagRelationship new_relationship);
-            void add_bags_contained(std::vector<BagRelationship> bags_contained);
-            int get_num_bags_containing_this_bag();
+            std::string get_bag_color();
+            void add_contained_in_relationship(std::shared_ptr<Bag> parent_bag);
+            void set_bags_contained(std::vector<BagRelationship> bags_contained);
+            int get_num_bags_containing_this_bag(std::set<std::string> &bags_passed);
     };
 
     class BagRules {

@@ -9,6 +9,7 @@
 #include "day4.hpp"
 #include "day5.hpp"
 #include "day6.hpp"
+#include "day7.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -71,6 +72,13 @@ int main(int argc, char** argv) {
                 std::cout << "The number of each group's customs answers is " << answer << std::endl;
                 answer = day6::sum_unanimous_form_answers_by_group();
                 std::cout << "The number of each group's unanimous customs answers is " << answer << std::endl;
+            }
+            break;
+            case 7:
+            {
+                std::cout << "Executing day 7" << std::endl;
+                int answer = day7::find_bags_that_contain_shiny_golden_bags();
+                std::cout << "The number of bags which can contain shiny gold bags eventually is " << answer << std::endl;
             }
             break;
             default:
