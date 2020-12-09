@@ -11,6 +11,7 @@
 #include "day6.hpp"
 #include "day7.hpp"
 #include "day8.hpp"
+#include "day9.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -91,6 +92,15 @@ int main(int argc, char** argv) {
                 std::cout << "The accumulator contained this value before repeating: " << answer << std::endl;
                 answer = day8::fix_program_and_get_final_accumulator_value();
                 std::cout << "The final accumulator value is " << answer << std::endl;
+            }
+            break;
+            case 9:
+            {
+                std::cout << "Executing day 9" << std::endl;
+                int answer = day9::get_bad_coded_number();
+                std::cout << "The number that is badly coded is: " << answer << std::endl;
+                answer = day9::get_sum_of_highest_and_lowest_numbers_in_contiguous_set_adding_to_part_1();
+                std::cout << "The sum of the highest and lowest number that contiguously adds to 1930745883 is: " << answer << std::endl;
             }
             break;
             default:
