@@ -26,6 +26,7 @@ namespace day7 {
             void add_contained_in_relationship(std::shared_ptr<Bag> parent_bag);
             void set_bags_contained(std::vector<BagRelationship> bags_contained);
             int get_num_bags_containing_this_bag(std::set<std::string> &bags_passed);
+            int find_num_bags_in_bag();
     };
 
     class BagRules {
@@ -34,7 +35,9 @@ namespace day7 {
         public:
             void add_bag_to_map(std::string rule_raw);
             int find_bags_that_contain_bag(std::string bag_color);
+            int find_num_nested_bags(std::string bag_color);
     };
 
     int find_bags_that_contain_shiny_golden_bags();
+    int find_bags_required_for_shiny_gold_bag();
 }

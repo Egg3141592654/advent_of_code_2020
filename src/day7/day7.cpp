@@ -26,15 +26,21 @@ namespace day7 {
         for(int i = 0; i < contained_in.size(); ++i) {
             auto attempt = bags_passed.insert(contained_in[i]->get_bag_color());
             if (attempt.second) {
-                std::cout << this->bag_color << " is appending the next bag " << contained_in[i]->get_bag_color() << " and adding result " << std::endl;
                 num_bags_containing_this_bag += 1 + contained_in[i]->get_num_bags_containing_this_bag(bags_passed);
-            }
-            else {
-                std::cout << "Skipping " << contained_in[i]->get_bag_color() << " because it was already in set" << std::endl;
             }
         }
 
         return num_bags_containing_this_bag;
+    }
+
+    int Bag::find_num_bags_in_bag() {
+        int num_bags_contained_in_bag = 1;
+
+        for (int i = 0; i < bags_contained.size(); ++i) {
+            num_bags_contained_in_bag += bags_contained[i].quantity * bags_contained[i].bag->find_num_bags_in_bag();
+        }
+
+        return num_bags_contained_in_bag;
     }
 
     void BagRules::add_bag_to_map(std::string rule_raw) {
@@ -108,6 +114,15 @@ namespace day7 {
         return find->second->get_num_bags_containing_this_bag(memory);
     }
 
+    int BagRules::find_num_nested_bags(std::string bag_color) {
+        auto find = graph.find(bag_color);
+
+        if (find == graph.end()) {
+            return -1;
+        }
+
+        return find->second->find_num_bags_in_bag() - 1;
+    }
 
     std::vector<std::string> parse_file_into_lines() {
         std::fstream infile("/examples/day7.txt");
@@ -130,5 +145,16 @@ namespace day7 {
         }
 
         return bag_rules.find_bags_that_contain_bag("shiny gold");
+    }
+
+    int find_bags_required_for_shiny_gold_bag() {
+        auto bag_rules_raw = parse_file_into_lines();
+        BagRules bag_rules;
+
+        for (int i = 0; i < bag_rules_raw.size(); ++i) {
+            bag_rules.add_bag_to_map(bag_rules_raw[i]);
+        }
+
+        return bag_rules.find_num_nested_bags("shiny gold");
     }
 }

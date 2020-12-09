@@ -79,6 +79,8 @@ int main(int argc, char** argv) {
                 std::cout << "Executing day 7" << std::endl;
                 int answer = day7::find_bags_that_contain_shiny_golden_bags();
                 std::cout << "The number of bags which can contain shiny gold bags eventually is " << answer << std::endl;
+                answer = day7::find_bags_required_for_shiny_gold_bag();
+                std::cout << "The number of bags required for purchase in a shiny gold bag is " << answer << std::endl;
             }
             break;
             default:
