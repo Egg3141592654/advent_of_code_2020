@@ -10,6 +10,7 @@
 #include "day5.hpp"
 #include "day6.hpp"
 #include "day7.hpp"
+#include "day8.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -81,6 +82,15 @@ int main(int argc, char** argv) {
                 std::cout << "The number of bags which can contain shiny gold bags eventually is " << answer << std::endl;
                 answer = day7::find_bags_required_for_shiny_gold_bag();
                 std::cout << "The number of bags required for purchase in a shiny gold bag is " << answer << std::endl;
+            }
+            break;
+            case 8:
+            {
+                std::cout << "Executing day 8" << std::endl;
+                int answer = day8::detect_last_accumulator_value_before_loop();
+                std::cout << "The accumulator contained this value before repeating: " << answer << std::endl;
+                answer = day8::fix_program_and_get_final_accumulator_value();
+                std::cout << "The final accumulator value is " << answer << std::endl;
             }
             break;
             default:
