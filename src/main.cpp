@@ -12,6 +12,7 @@
 #include "day7.hpp"
 #include "day8.hpp"
 #include "day9.hpp"
+#include "day10.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -101,6 +102,13 @@ int main(int argc, char** argv) {
                 std::cout << "The number that is badly coded is: " << answer << std::endl;
                 answer = day9::get_sum_of_highest_and_lowest_numbers_in_contiguous_set_adding_to_part_1();
                 std::cout << "The sum of the highest and lowest number that contiguously adds to 1930745883 is: " << answer << std::endl;
+            }
+            break;
+            case 10:
+            {
+                std::cout << "Executing day 10" << std::endl;
+                int answer = day10::get_product_of_single_and_triple_jolt_adapter_value_counts();
+                std::cout << "The product of 3 and 1 jolt adapter differentials is: " << answer << std::endl;
             }
             break;
             default:
