@@ -109,6 +109,8 @@ int main(int argc, char** argv) {
                 std::cout << "Executing day 10" << std::endl;
                 int answer = day10::get_product_of_single_and_triple_jolt_adapter_value_counts();
                 std::cout << "The product of 3 and 1 jolt adapter differentials is: " << answer << std::endl;
+                long answer2 = day10::get_permutations_of_adapters();
+                std::cout << "The number of permutations of adapters to plug in your computer is " << answer2 << std::endl;
             }
             break;
             default:
