@@ -13,6 +13,7 @@
 #include "day8.hpp"
 #include "day9.hpp"
 #include "day10.hpp"
+#include "day11.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -111,6 +112,15 @@ int main(int argc, char** argv) {
                 std::cout << "The product of 3 and 1 jolt adapter differentials is: " << answer << std::endl;
                 long answer2 = day10::get_permutations_of_adapters();
                 std::cout << "The number of permutations of adapters to plug in your computer is " << answer2 << std::endl;
+            }
+            break;
+            case 11:
+            {
+                std::cout << "Executing day 11" << std::endl;
+                int answer = day11::count_occupied_seats();
+                std::cout << "The number of occupied seats on the plane is: " << answer << std::endl;
+                answer = day11::count_occupied_seats_sightline();
+                std::cout << "The number of people occupied by sight is: " << answer << std::endl;
             }
             break;
             default:
