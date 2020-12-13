@@ -14,6 +14,7 @@
 #include "day9.hpp"
 #include "day10.hpp"
 #include "day11.hpp"
+#include "day12.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -121,6 +122,15 @@ int main(int argc, char** argv) {
                 std::cout << "The number of occupied seats on the plane is: " << answer << std::endl;
                 answer = day11::count_occupied_seats_sightline();
                 std::cout << "The number of people occupied by sight is: " << answer << std::endl;
+            }
+            break;
+            case 12:
+            {
+                std::cout << "Executing day 12" << std::endl;
+                int answer = day12::get_manhattan_distance_traveled();
+                std::cout << "The manhattan distance the boat has traveled is: " << answer << std::endl;
+                answer = day12::get_manhattan_ship_distance_traveled();
+                std::cout << "The manhattan distance the waypoint boat has traveled is: " << answer << std::endl;
             }
             break;
             default:
