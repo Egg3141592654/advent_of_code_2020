@@ -15,6 +15,7 @@
 #include "day10.hpp"
 #include "day11.hpp"
 #include "day12.hpp"
+#include "day13.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -131,6 +132,13 @@ int main(int argc, char** argv) {
                 std::cout << "The manhattan distance the boat has traveled is: " << answer << std::endl;
                 answer = day12::get_manhattan_ship_distance_traveled();
                 std::cout << "The manhattan distance the waypoint boat has traveled is: " << answer << std::endl;
+            }
+            break;
+            case 13:
+            {
+                std::cout << "Executing day 13" << std::endl;
+                int answer = day13::get_soonest_bus_id_times_waittime();
+                std::cout << "The bus id times soonest arrival time delta is: " << answer << std::endl;
             }
             break;
             default:
