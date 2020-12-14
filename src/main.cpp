@@ -139,6 +139,8 @@ int main(int argc, char** argv) {
                 std::cout << "Executing day 13" << std::endl;
                 int answer = day13::get_soonest_bus_id_times_waittime();
                 std::cout << "The bus id times soonest arrival time delta is: " << answer << std::endl;
+                unsigned long answer2 = day13::get_first_sequential_bus_departure_timestanp();
+                std::cout << "The first timestamp that all buses depart sequentially is: " << answer2 << std::endl;
             }
             break;
             default:
