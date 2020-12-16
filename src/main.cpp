@@ -16,6 +16,7 @@
 #include "day11.hpp"
 #include "day12.hpp"
 #include "day13.hpp"
+#include "day14.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -141,6 +142,13 @@ int main(int argc, char** argv) {
                 std::cout << "The bus id times soonest arrival time delta is: " << answer << std::endl;
                 unsigned long answer2 = day13::get_first_sequential_bus_departure_timestanp();
                 std::cout << "The first timestamp that all buses depart sequentially is: " << answer2 << std::endl;
+            }
+            break;
+            case 14:
+            {
+                std::cout << "Executing day 14" << std::endl;
+                int answer = day14::sum_bitmask();
+                std::cout << "The sum of the bitmask is: " << answer << std::endl;
             }
             break;
             default:

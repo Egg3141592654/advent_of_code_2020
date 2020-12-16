@@ -44,5 +44,6 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "bit": "cpp"
-    }
+    },
+    "python.pythonPath": "/usr/bin/python3"
 }
