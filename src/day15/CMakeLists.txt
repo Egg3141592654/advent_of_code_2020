@@ -1,0 +1,1 @@
+add_library(day15 day15.cpp day15.hpp)

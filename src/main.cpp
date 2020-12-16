@@ -17,6 +17,7 @@
 #include "day12.hpp"
 #include "day13.hpp"
 #include "day14.hpp"
+#include "day15.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -147,8 +148,17 @@ int main(int argc, char** argv) {
             case 14:
             {
                 std::cout << "Executing day 14" << std::endl;
-                int answer = day14::sum_bitmask();
+                unsigned long answer = day14::sum_bitmask();
                 std::cout << "The sum of the bitmask is: " << answer << std::endl;
+            }
+            break;
+            case 15:
+            {
+                std::cout << "Executing day 15" << std::endl;
+                int answer = day15::get_2020_turn();
+                std::cout << "The 2020th turn is: " << answer << std::endl;
+                unsigned long answer2 = day15::get_30000000th_step();
+                std::cout << "the 30000000th turn is: " << answer2 << std::endl;
             }
             break;
             default:
