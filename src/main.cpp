@@ -18,6 +18,7 @@
 #include "day13.hpp"
 #include "day14.hpp"
 #include "day15.hpp"
+#include "day16.hpp"
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -159,6 +160,13 @@ int main(int argc, char** argv) {
                 std::cout << "The 2020th turn is: " << answer << std::endl;
                 unsigned long answer2 = day15::get_30000000th_step();
                 std::cout << "the 30000000th turn is: " << answer2 << std::endl;
+            }
+            break;
+            case 16:
+            {
+                std::cout << "Executing day 16" << std::endl;
+                unsigned int answer = day16::get_ticket_error_rate();
+                std::cout << "The ticket error rate is: " << answer << std::endl;
             }
             break;
             default:
